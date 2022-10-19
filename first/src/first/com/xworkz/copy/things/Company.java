@@ -23,7 +23,7 @@ public class Company {
 		this.phone=phone;
 		this.email=email;
 		this.city=city;
-		this.employees= employees;
+		this.employees= employess;
 		this.employee_id=employee_id;
 		this.salary=salary;
 		this.projects=projects;

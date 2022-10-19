@@ -14,7 +14,7 @@ public class Bank {
 	public int[] team_no ;
 	
 	
-	public Bank(String name,int no_employess,long phone,String email,String city,String[] employess,int[] employee_id, int[] salary,String[] projects
+	public Bank(String name,int no_employess,long phone,String email,String city,String[] employees,int[] employee_id, int[] salary,String[] projects
 	 ,String[] desgnation,int[]team_no)
 	{
 		System.out.println("constructor of student");

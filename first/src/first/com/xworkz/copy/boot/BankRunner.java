@@ -1,8 +1,6 @@
 package first.com.xworkz.copy.boot;
 
 import first.com.xworkz.copy.things.Bank;
-
-
 public class BankRunner {
 	public static void main(String[] args) {
 		String[] nameValues= {"sunitha","kavitha"};
