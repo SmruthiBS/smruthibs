@@ -12,9 +12,9 @@ City city=new City("banglore", true, "bendakaluru",741 );
 Location location=new Location(3, "swami vivekananda road", city, state, country);
 Address address=new Address(location);
 Company company =new Company("google", "Alphabet Inc.", address);
-Job job=new Job(100000," sofware developer",true,company);
-Email mail1 =new Email("radha@gmail.com","radha@123",94498840,company);
-Email mail2 =new Email("radha@google.com","radha@123",94498840,company);
+Job job=new Job(1000000," sofware developer",true,company);
+Email mail1 =new Email("radha@gmail.com","radha@123",9449498840l,company);
+Email mail2 =new Email("radha@google.com","radha@123",9449498840l,company);
  Email[] mails= {mail1,mail2};
 
 
