@@ -1,6 +1,6 @@
-package com.xworkz.access_specifer.examples.moblie;
+package com.xworkz.access_specifer.examples.laptop;
 
-public class Mobile {
+public class laptop {
 	public String brand="suv";
 	public String model="nighteagle";
 	public String colour="black";
