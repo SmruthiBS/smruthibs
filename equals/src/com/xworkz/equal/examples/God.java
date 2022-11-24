@@ -1,6 +1,6 @@
 package com.xworkz.equal.examples;
 
-import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+
 
 public class God {
 	
@@ -89,7 +89,7 @@ public class God {
 		this.power = power;
 		this.vahana = vahana;
 		this.other_name = other_name;
-		this.temple = temple;
+		this.temple = temple=
 		this.weapon = weapon;
 		this.noOfWifes = noOfWifes;
 		this.templeLocation = templeLocation;

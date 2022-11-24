@@ -8,48 +8,8 @@ public class Currency {
 	private double convertingPrice;
 	private String material;
 	private String acceptableCountries;
-
-	public Currency() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public Currency(String currencyName, String countryName, double makingCost, char code, boolean strong,
-			double convertingPrice, String material, String acceptableCountries) {
-		super();
-		this.currencyName = currencyName;
-		this.countryName = countryName;
-		this.makingCost = makingCost;
-		this.code = code;
-		this.strong = strong;
-		this.convertingPrice = convertingPrice;
-		this.material = material;
-		this.acceptableCountries = acceptableCountries;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		System.out.println("running equals method in currencye");
-
-		if (obj instanceof Currency) {
-			System.out.println("obj is currency, can check the properties");
-			Currency casting = (Currency) obj;
-			if (this.currencyName.equals(casting.currencyName)) {
-				System.out.println("currencyName is same");
-				return true;
-			} else {
-				System.err.println("obj is not currency, cannot check the properties");
-			}
-
-		}
-		return false;
-	}
-
-	@Override
-	public String toString() {
-		return "Currency [currencyName=" + currencyName + ", countryName=" + countryName + ", makingCost=" + makingCost
-				+ ", code=" + code + ", strong=" + strong + ", convertingPrice=" + convertingPrice + ", material="
-				+ material + ", acceptableCountries=" + acceptableCountries + "]";
-	}
+	private String colour;
+	private int value;
 
 	public String getCurrencyName() {
 		return currencyName;
@@ -114,5 +74,70 @@ public class Currency {
 	public void setAcceptableCountries(String acceptableCountries) {
 		this.acceptableCountries = acceptableCountries;
 	}
+	public String getColour() {
+		return colour;
+	}
+
+	public void setColour(String colour) {
+		this.colour = colour;
+	}
+
+	
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
+	public Currency() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Currency(String currencyName, String countryName, double makingCost, char code, boolean strong,
+			double convertingPrice, String material, String acceptableCountries) {
+		super();
+		this.currencyName = currencyName;
+		this.countryName = countryName;
+		this.makingCost = makingCost;
+		this.code = code;
+		this.strong = strong;
+		this.convertingPrice = convertingPrice;
+		this.material = material;
+		this.acceptableCountries = acceptableCountries;
+	
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Currency [currencyName=" + currencyName + ", countryName=" + countryName + ", makingCost=" + makingCost
+				+ ", code=" + code + ", strong=" + strong + ", convertingPrice=" + convertingPrice + ", material="
+				+ material + ", acceptableCountries=" + acceptableCountries + ", colour=" + colour + ", value=" + value
+				+ "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		System.out.println("running equals method in currencye");
+
+		if (obj instanceof Currency) {
+			System.out.println("obj is currency, can check the properties");
+			Currency casting = (Currency) obj;
+			if (this.currencyName.equals(casting.currencyName)) {
+				System.out.println("currencyName is same");
+				return true;
+			} else {
+				System.err.println("obj is not currency, cannot check the properties");
+			}
+
+		}
+		return false;
+	}
+
+
+	
 
 }
