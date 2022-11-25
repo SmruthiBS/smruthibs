@@ -77,10 +77,27 @@ public class Methods {
 		System.out.println(hascode);
 		
 		
+		 int num=string1.codePointAt(2);//Returns the character (Unicode code point) at the specified index.
+		 System.out.println(num);
 		
 		 
+		 int before=string2.codePointBefore(4);//Returns the character (Unicode code point) before the specified index.
+		 System.out.println(before);
 		 
+		 String newString=string1.concat(" suresh");//Concatenates the specified string to the end of this string.
+		 System.out.println(newString);
 		
+		 boolean contain=string2.contains("work");//Returns true if and only if this string contains the specified sequence of char values.
+		 System.out.println(contain);
+		 
+		 String doublevalue=String.valueOf(100);//Returns the string representation of the double argument.
+		 System.out.println(doublevalue);
+		 
+		 String substring=string2.substring(3);
+		 System.out.println(substring);
+		
+		 String substring1=string2.substring(0,4);
+		 System.out.println(substring1);
 	
 	}
 	
