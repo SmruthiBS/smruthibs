@@ -12,7 +12,9 @@ public class Amazon {
 	public String[] colours;
 	public String[] brand;
 	public int[] quantity;
-
+public Amazon() {
+	
+}
 	public Amazon(String product, int productNo, int batchNo, String productType, double price, String[] customers,String[] address,
 			String[] payment, String[] colours, String[] brand, int[] quantity) {
 		this.product = product;

@@ -93,10 +93,10 @@ public class Methods {
 		 String doublevalue=String.valueOf(100);//Returns the string representation of the double argument.
 		 System.out.println(doublevalue);
 		 
-		 String substring=string2.substring(3);
+		 String substring=string2.substring(3);//Returns a string that is a substring of this string.
 		 System.out.println(substring);
 		
-		 String substring1=string2.substring(0,4);
+		 String substring1=string2.substring(0,4);//eturns a string that is a substring of this string.
 		 System.out.println(substring1);
 	
 	}

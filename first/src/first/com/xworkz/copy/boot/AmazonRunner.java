@@ -12,6 +12,7 @@ public class AmazonRunner {
 		int[]quantity= {2,4,6};
 		Amazon product=new Amazon("top",12,123,"clothing",200,customerValues,addressValues,paymentValues,colourVlues,brandVlues,quantity);
 		product.display();
+		System.out.println(product);
 	}
 
 }
