@@ -3,7 +3,7 @@ package com.xworks.programs;
 public class CountDigit {
 	 public static void main(String[] args) {
 	        //number
-	        int num = 123456789;
+	        int num = 12345;
 	         
 	        //variable to store count of digits in number
 	        int count = 0;
@@ -12,6 +12,7 @@ public class CountDigit {
 	        while(num!=0) {
 	            num = num/10; //removes last digit of num
 	            count++;
+	        
 	        }
 	         
 	        //print the count
