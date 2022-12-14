@@ -15,7 +15,7 @@ public class GmailRepositortyImplimentation implements GmailRepository{
 		throw new EmailSizeExceedException();}
 		this.gmails[total]=gmail;
 		this.total++;
-		return false;
+		return true;
 		
 	}
 

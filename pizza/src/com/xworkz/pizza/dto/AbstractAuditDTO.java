@@ -1,9 +1,16 @@
-package com.xworkz.dto.dto;
+package com.xworkz.pizza.dto;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public abstract class AbstractAuditDTO implements Serializable {
+public class AbstractAuditDTO implements Serializable {
+	public AbstractAuditDTO(String createdBy, LocalDateTime createdDate, String updatedBy, LocalDateTime updatedDate) {
+		super();
+		this.createdBy = createdBy;
+		this.createdDate = createdDate;
+		this.updatedBy = updatedBy;
+		this.updatedDate = updatedDate;
+	}
 	private String createdBy;
 	private LocalDateTime createdDate;
 	private String updatedBy;
@@ -28,12 +35,6 @@ public abstract class AbstractAuditDTO implements Serializable {
 	public String getUpdatedBy() {
 		return updatedBy;
 	}
-	@Override
-	public String toString() {
-		return "AbstractAuditDTO [createdBy=" + createdBy + ", createdDate=" + createdDate + ", updatedBy=" + updatedBy
-				+ ", updatedDate=" + updatedDate + "]";
-	}
-
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
 	}
@@ -43,7 +44,6 @@ public abstract class AbstractAuditDTO implements Serializable {
 	public void setUpdatedDate(LocalDateTime updatedDate) {
 		this.updatedDate = updatedDate;
 	}
-	
 	
 
 }
