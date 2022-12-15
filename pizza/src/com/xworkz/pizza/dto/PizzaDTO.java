@@ -66,7 +66,7 @@ public class PizzaDTO extends AbstractAuditDTO {
 		this.type = type;
 	}
 	public PizzaDTO(String name, String company, PizzaSize size, boolean cheese, double price, String flavour,
-			String type) {
+			String type,String CratedBy,LocalDateTime CreatedDate) {
 super("system",LocalDateTime.now(),null,null);
 		this.name = name;
 		this.company = company;
@@ -75,6 +75,8 @@ super("system",LocalDateTime.now(),null,null);
 		this.price = price;
 		this.flavour = flavour;
 		this.type = type;
+		CreatedDate=getCreatedDate();
+		CratedBy=getCreatedBy();
 	}
 	
 	
