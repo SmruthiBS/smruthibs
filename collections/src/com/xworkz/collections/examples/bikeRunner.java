@@ -3,7 +3,7 @@ package com.xworkz.collections.examples;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 
-public class bike {
+public class bikeRunner {
 	public static void main(String[] args) {
 	Collection<String>collect=new LinkedHashSet();
 	collect.add("Yamaha MT 15 V2");

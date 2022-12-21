@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Queue;
 
-public class malls {
+public class mallsRunner {
 	public static void main(String[] args) {
 		Collection< String> collect=new LinkedHashSet() ;
 		collect.add("UB City Mall");

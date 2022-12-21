@@ -3,7 +3,7 @@ package com.xworkz.collections.examples;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class Sweets {
+public class SweetsRunner {
 
 	public static void main(String[] args) {
 		String Sweet1="kaju barfi";
