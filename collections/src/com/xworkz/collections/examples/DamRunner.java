@@ -461,7 +461,7 @@ public class DamRunner {
 				System.out.println("Element ends with ra " + element);
 			}
 		}
-		System.out.println("=======================================");
+		System.out.println("================================================================");
 		
 		
 //length>15
@@ -472,7 +472,7 @@ public class DamRunner {
 				System.out.println("Element length greater than 15 characters " + element);
 			}
 		}
-		System.out.println("=======================================");
+		System.out.println("=================================================================================");
 //uppercase
 		Iterator<String> UpperCase = damsInIndia.iterator();
 		while (UpperCase.hasNext()) {
@@ -480,7 +480,7 @@ public class DamRunner {
 		
 			System.out.println("Element with upper case " + element.toUpperCase());
 		}
-		System.out.println("=======================================");
+		System.out.println("*********************=======================================************************");
 
 		Iterator<String> checkLowerCase = damsInIndia.iterator();
 		while (checkLowerCase.hasNext()) {
