@@ -13,7 +13,7 @@ public class SpringConfiguration {
 	}
 @Bean
 public int id() {
-	System.out.println("registering id");
+	
 	return 1;
 }
 @Bean
