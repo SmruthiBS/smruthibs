@@ -1,3 +1,5 @@
+package com.xworkz.signup;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -28,7 +30,7 @@ public class ContactServlet extends HttpServlet {
 
 		PrintWriter writer = resp.getWriter();
 		writer.print("<html>");
-		writer.print("<body align=\"center\">");
+		writer.print("<body >");
 		writer.print("<h1>");
 		if (name.length() > 3 && email.length() > 3 && number.length() == 10 && commet.length() > 3) {
 			writer.print("<span style='color:green'>");

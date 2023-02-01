@@ -43,7 +43,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 	writer.print("</span>");
 	writer.print("<a href=\"index.html\">home </a>");
 	writer.print("<br>");
-	writer.print("<a href=\"contact.html\">give another response</a>");
+	writer.print("<a href=\"locationhtml.html\">give another response</a>");
 
 	writer.print("</body>");
 	writer.print("</html>");
