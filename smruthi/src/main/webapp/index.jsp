@@ -135,7 +135,7 @@
 <form action="fmlyDTO">
 <h6>display family DTO: </h6>
 <input type="submit" value="show family"><br>
-<label>: type ${data.type}</label><br>
+<label>: type ${value.type}</label><br>
 <label>:familyName ${value.familyName}</label><br>
 <label>: fatherName ${value.fatherName}</label><br>
 <label>:motherName ${value.motherName}</label><br>
