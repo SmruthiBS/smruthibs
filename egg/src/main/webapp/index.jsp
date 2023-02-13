@@ -15,6 +15,9 @@
       <a class="navbar-brand" href="#"><img alt="" src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png" height="100px" width="100px">
     </a>
     <a href="egg.jsp"> egg application</a>
+      <a class="navbar-brand" href="#">
+    <a href="CM.jsp"> CM application</a>
+    
    </nav>
 
 </body>
