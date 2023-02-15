@@ -48,6 +48,7 @@ public String onValentine(Model model,ValentineDTO dto) {
 	model.addAttribute("places",places);
 	model.addAttribute("gifts",gifts);
 	model.addAttribute("errors",violations);
+	model.addAttribute("dto",dto);
 	System.err.println("violations in controller");
 	return "Valentine";
 }

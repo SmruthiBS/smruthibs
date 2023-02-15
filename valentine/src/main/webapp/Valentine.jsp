@@ -66,15 +66,15 @@
 	<br>
 		<div class="mb-3">
 			<label for="formFile" class="food" >enter name</label>
-			 <input class="form-control" type="text" id="name" name="name"
+			 <input class="form-control" type="text" id="name" name="name" value="${dto.name}"
 				placeholder="enter  name">
 		</div>
 		
 		<br>
 	<div class="mb-3">
 			<label for="formFile" class="food" >enter valentine name</label>
-			 <input class="form-control" type="text" id="name" name="valentineName"
-				placeholder="enter   valentine name">
+			 <input class="form-control" type="text" id="name" name="valentineName" value="${dto.valentineName}"
+				placeholder="enter valentine name">
 		</div>
 		<br>
 		<div>
