@@ -12,16 +12,16 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"/>
 </head>
 <body>
-<h1>Welcome to Aeroplane application</h1>
+<h1>Welcome to zoo application</h1>
 
 <nav class="navbar navbar-dark bg-dark">
 			<!-- Navbar content -->
 			<div class="container-fluid">
 				<img
-					src="https://images.pexels.com/photos/104826/aircraft-holiday-sun-tourism-104826.jpeg?cs=srgb&dl=pexels-pixabay-104826.jpg&fm=jpg"
-					alt="" width="90" height="60" class="d-inline-block align-text-top">
+					src="https://media.istockphoto.com/id/1361301152/vector/zoo-entrance-gates-animals-park-fences-visitors-take-selfies-parents-and-children-excursion.jpg?s=612x612&w=0&k=20&c=OnFI3UhqC6E953dtrGwcgZt6Ej6HiJYdGclMPntR4T4="
+					alt="" width="100" height="80" class="d-inline-block align-text-top">
 
-				<a href="plane">click here to register</a>
+				<a href="fun">click here to register</a>
 				<a href="Search.jsp">search</a>
 			</div>
 			
