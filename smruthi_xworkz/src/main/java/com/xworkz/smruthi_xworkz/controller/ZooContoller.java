@@ -35,7 +35,7 @@ public String onFun(Model model) {
 }
 @PostMapping("fun")
 public String onFun(Model model, ZooDTO dto) {
-	System.out.println("Running onAir in post in controller");
+	System.out.println("Running onfun in post in controller");
 	Set<ConstraintViolation<ZooDTO>> violations = this.service.validateAndSave(dto);
 	if (violations.isEmpty()) {
 		System.out.println("no violations in controller,goto next page");
@@ -67,5 +67,12 @@ public String onSearch(@RequestParam int id,Model model) {
 	}
 	return "Search";
 	
+}
+@GetMapping("searchByLocation")
+public String OnSearchByLocation(@RequestParam String location,Model model) {
+	System.out.println("running search by location in contolller");
+	List<ZooDTO>list=this.service.findByLocation(location);
+	model.addAttribute("list", list);
+	return "LocationSearch";
 }
 }

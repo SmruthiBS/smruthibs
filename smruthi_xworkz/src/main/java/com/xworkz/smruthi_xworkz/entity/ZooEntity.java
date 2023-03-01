@@ -3,6 +3,7 @@ package com.xworkz.smruthi_xworkz.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -10,6 +11,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "zoo_table")
+@NamedQuery(name = "findByLocation",query = "select ent from ZooEntity ent where ent.location=:loc")
 public class ZooEntity {
 	@Id
 	@Column(name = "id")

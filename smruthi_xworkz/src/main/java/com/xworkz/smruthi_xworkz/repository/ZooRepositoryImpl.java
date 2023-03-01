@@ -1,8 +1,11 @@
 package com.xworkz.smruthi_xworkz.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -40,7 +43,21 @@ public ZooRepositoryImpl() {
 		entityManager.close();
 		return entity;
 	}
-
+@Override
+public List<ZooEntity> findByLocation(String location) {
+	System.out.println("find by location in repoimpl");
+	EntityManager manager=this.entityManagerFactory.createEntityManager();
+	try {
+		Query query=manager.createNamedQuery("findByLocation");
+		query.setParameter("loc", location);
+		List<ZooEntity>list=query.getResultList();
+		System.out.println("total list found in repo "+list.size());
+		return list;
+	}
+	finally {
+		manager.close();
+	}
+}
 	}
 
 

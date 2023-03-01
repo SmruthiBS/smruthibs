@@ -23,6 +23,7 @@
 
 				<a href="fun">click here to register</a>
 				<a href="Search.jsp">search</a>
+				<a href="LocationSearch.jsp">location search</a>
 			</div>
 			
 		</nav>

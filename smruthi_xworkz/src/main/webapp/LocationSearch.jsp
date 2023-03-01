@@ -13,9 +13,14 @@
 	crossorigin="anonymous">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" />
+	<style >
+	table,th,td{
+	border: 1px solid black;}
+	
+	</style>
 </head>
 <body>
-	<h1>Welcome to search Page</h1>
+	<h1>Welcome to search by location  Page</h1>
 
 	<nav class="navbar navbar-dark bg-dark">
 		<!-- Navbar content -->
@@ -32,17 +37,31 @@
 	<h3>
 		<span style="color: red;">${message}</span>
 	</h3>
-	<form action="find" method="get">
-		SearchById<input type="text" name="id" /> <input type="submit"
+	<form action="searchByLocation" method="get">
+		SearchByLocation<input type="text" name="location" /> <input type="submit"
 			value="search" required="required">
 	</form>
 	<div>
-		<h4>result</h4>
-		<h4>Name:${dto.name}</h4>
-		<h4>location:${dto.location}</h4>
-		<h4>entryFees:${dto.entryFees}</h4>
-		<h4>visitorType:${dto.visitorType}</h4>
-		<h4>Area:${dto.area}</h4>
+		<table>
+		<tr>
+		
+			<th>name</th>
+			<th>location</th>
+			<th>area</th>
+			<th>entryFees</th>
+			<th>visitorType</th>
+							</tr>
+					<c:forEach items="${list}" var="l">
+					<tr>
+					<td>${l.name}</td>
+					<td>${l.location}</td>
+					<td>${l.area}</td>
+					<td>${l.entryFees}</td>
+					<td>${l.visitorType}</td>
+					</tr>
+					</c:forEach>
+							
+		</table>
 	</div>
 </body>
 </html>

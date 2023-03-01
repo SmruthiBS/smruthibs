@@ -1,7 +1,8 @@
 package com.xworkz.smruthi_xworkz.service;
 
+import java.util.ArrayList;
 import java.util.Collections;
-
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -66,5 +67,31 @@ public class ZooServiceImpl implements ZooService {
 
 		}
 		return ZooService.super.findById(id);
+	}
+	@Override
+	public List<ZooDTO> findByLocation(String location) {
+	System.out.println("running findByLocation in service "+location); 
+	if(location!=null &&!location.isEmpty() ) {
+		System.out.println("location is valid..calling repo");
+		List<ZooEntity>entites=this.repo.findByLocation(location);
+		List<ZooDTO>listOfDTO=new ArrayList<ZooDTO>();
+		for (ZooEntity entity: entites) {
+			ZooDTO dto=new ZooDTO();
+			dto.setArea(entity.getArea());
+			dto.setEntryFees(entity.getEntry_Fees());
+			dto.setLocation(entity.getLocation());
+			dto.setName(entity.getName());
+			dto.setVisitorType(entity.getVisitor_Type());
+			listOfDTO.add(dto);
+			
+		}
+		System.out.println("size of dto "+listOfDTO.size());
+		System.out.println("size of entities "+entites.size());
+		return listOfDTO;
+	}
+	else {
+		System.err.println("location is invalid");
+	}
+		return ZooService.super.findByLocation(location);
 	}
 }
