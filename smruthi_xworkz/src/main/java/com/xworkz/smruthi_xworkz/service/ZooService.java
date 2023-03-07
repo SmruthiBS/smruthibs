@@ -20,9 +20,14 @@ public interface ZooService {
 		return Collections.emptyList();
 	}
 	Set<ConstraintViolation<ZooDTO>>validateAndUpdate(ZooDTO dto);
-	default ZooDTO deleteById(int id) {
+	default ZooDTO ValidateAndDelete(int id) {
 		return null;
 		
+	}
+
+	default boolean validateAndDelete(int id) 
+	{
+		return false;
 	}
 }
 

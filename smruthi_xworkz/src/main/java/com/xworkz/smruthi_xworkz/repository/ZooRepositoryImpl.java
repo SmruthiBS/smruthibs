@@ -75,22 +75,25 @@ public boolean update(ZooEntity entity)
 		manager.close();
 	}
 }
-@Override
-public ZooEntity deleteById(int id) {
-	System.out.println("running delete by id");
-	EntityManager manager=this.entityManagerFactory.createEntityManager();
-	try {
-		EntityTransaction transaction=manager.getTransaction();
-		ZooEntity delete=manager.find(ZooEntity.class, id);
-		transaction.begin();
+public boolean delete(int id)
+{
+	System.out.println("Running the Delete");
+	EntityManager manager = this.entityManagerFactory.createEntityManager();
+	try
+	{
+		EntityTransaction ts = manager.getTransaction();
+		ZooEntity delete = manager.find(ZooEntity.class, id);
+		ts.begin();
 		manager.remove(delete);
-		transaction.commit();
-		return delete;
-	}finally {
+		ts.commit();
+		return true;
+	}
+	finally
+	{
 		manager.close();
+	
 	}
-		
 }
-	}
+}
 
 

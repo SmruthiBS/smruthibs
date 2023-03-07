@@ -101,17 +101,21 @@ public String onUpdate(ZooDTO dto, Model model) {
 
 	
 }
-@GetMapping("delete")
-public String onDelete(@RequestParam int id,Model model) {
-	System.out.println("running delete in controller");
-	ZooDTO dto=this.service.deleteById(id);
-	if(dto==null) {
-		model.addAttribute("id", id);
-		model.addAttribute("message", "deleted sucessfully");
+@GetMapping("/delete")
+public String onDelete(@RequestParam int id , Model model) 
+{
+	System.out.println("delete the data :" +id);
+	boolean delete = this.service.validateAndDelete(id);
+	if(delete=true)
+	{
+		System.out.println("delete data of :" +id);
+		model.addAttribute("delete", "delete successfully....: ID :");
+		model.addAttribute("id",id);
 	}
 	else
-		model.addAttribute("error", "data not found");
-	return "delete";
+	{
+		model.addAttribute("Not delete", "id is not found");
+	}
+	return "LocationSearch";
 }
-
 }

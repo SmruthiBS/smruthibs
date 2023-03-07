@@ -15,8 +15,8 @@ boolean update (ZooEntity entity);
 	default  List<ZooEntity> findByLocation(String location){
 		return Collections.emptyList();
 	}
-	default ZooEntity deleteById(int id) {
-		return null;
+	default boolean delete(int id) {
+		return false;
 		
 	}
 }

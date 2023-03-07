@@ -123,12 +123,21 @@ public class ZooServiceImpl implements ZooService {
 			return Collections.emptySet();
 		}
 	}
+	
 	@Override
-	public ZooDTO deleteById(int id) {
-		System.out.println("running delete by id in service");
-		if(id>0) {
-			ZooEntity entity=this.repo.deleteById(id);
+	public boolean validateAndDelete(int id) 
+	{
+		System.out.println("Running the delete operation");
+		if(id<0)
+		{
+			return false;
 		}
-		return ZooService.super.deleteById(id);
+		else
+		{
+			boolean deleted = this.repo.delete(id);
+			System.out.println("Deleted :" + deleted);
+			return deleted;
+		}
+		
 	}
 }

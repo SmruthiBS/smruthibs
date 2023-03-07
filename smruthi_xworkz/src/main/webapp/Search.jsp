@@ -28,39 +28,23 @@
 		</div>
 
 	</nav>
-	<h3>Search</h3>
+<h3>
+		<span style="color: green;">${message }</span>
+	</h3>
 	<h3>
-		<span style="color: red;">${message}</span>
+		<span style="color: red;">${error }</span>
 	</h3>
 	<form action="find" method="get">
 		SearchById<input type="text" name="id" /> <input type="submit"
 			value="search" required="required">
 	</form>
 	<div>
-		<table>
-		<tr>
-		<th>id</th>
-			<th>name</th>
-			<th>location</th>
-			<th>area</th>
-			<th>entryFees</th>
-			<th>visitorType</th>
-			
-							</tr>
-					<c:forEach items="${list}" var="l">
-					<tr>
-						<td>${l.id}</td>
-					<td>${l.name}</td>
-					<td>${l.location}</td>
-					<td>${l.area}</td>
-					<td>${l.entryFees}</td>
-					<td>${l.visitorType}</td>
-					<td><a href="update?id=${l.id}">edit</a></td>
-					</tr>
-					</c:forEach>
-							
-		</table>
+		<h4>result</h4>
+		<h4>Name:${dto.name}</h4>
+		<h4>location:${dto.location}</h4>
+		<h4>entryFees:${dto.entryFees}</h4>
+		<h4>visitorType:${dto.visitorType}</h4>
+		<h4>Area:${dto.area}</h4>
 	</div>
-	
 </body>
 </html>
