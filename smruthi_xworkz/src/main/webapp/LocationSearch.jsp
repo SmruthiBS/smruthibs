@@ -44,20 +44,25 @@
 	<div>
 		<table>
 		<tr>
-		
+		<th>id</th>
 			<th>name</th>
 			<th>location</th>
 			<th>area</th>
 			<th>entryFees</th>
 			<th>visitorType</th>
+			<th>edit</th>
+			<th>delete</th>
 							</tr>
 					<c:forEach items="${list}" var="l">
 					<tr>
+					<td>${l.id}</td>
 					<td>${l.name}</td>
 					<td>${l.location}</td>
 					<td>${l.area}</td>
 					<td>${l.entryFees}</td>
 					<td>${l.visitorType}</td>
+					<td><a href="update?id=${l.id}">edit</a></td>
+					<td><a href="delete?id=${l.id}">delete</a></td>
 					</tr>
 					</c:forEach>
 							

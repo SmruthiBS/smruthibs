@@ -58,6 +58,39 @@ public List<ZooEntity> findByLocation(String location) {
 		manager.close();
 	}
 }
+public boolean update(ZooEntity entity)
+{
+	System.out.println("running the update in entity");
+	EntityManager manager = this.entityManagerFactory.createEntityManager();
+	try
+	{
+		EntityTransaction ts = manager.getTransaction();
+		ts.begin();
+		manager.merge(entity);
+		ts.commit();
+		return true;
+	}
+	finally
+	{
+		manager.close();
+	}
+}
+@Override
+public ZooEntity deleteById(int id) {
+	System.out.println("running delete by id");
+	EntityManager manager=this.entityManagerFactory.createEntityManager();
+	try {
+		EntityTransaction transaction=manager.getTransaction();
+		ZooEntity delete=manager.find(ZooEntity.class, id);
+		transaction.begin();
+		manager.remove(delete);
+		transaction.commit();
+		return delete;
+	}finally {
+		manager.close();
+	}
+		
+}
 	}
 
 

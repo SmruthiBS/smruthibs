@@ -19,5 +19,10 @@ public interface ZooService {
 	default  List<ZooDTO> findByLocation(String location){
 		return Collections.emptyList();
 	}
+	Set<ConstraintViolation<ZooDTO>>validateAndUpdate(ZooDTO dto);
+	default ZooDTO deleteById(int id) {
+		return null;
+		
+	}
 }
 

@@ -72,7 +72,46 @@ public String onSearch(@RequestParam int id,Model model) {
 public String OnSearchByLocation(@RequestParam String location,Model model) {
 	System.out.println("running search by location in contolller");
 	List<ZooDTO>list=this.service.findByLocation(location);
-	model.addAttribute("list", list);
+	if(list !=null) {
+	model.addAttribute("list", list);}
+	else {
+		model.addAttribute("message", "no data found");
+	}
 	return "LocationSearch";
 }
+@GetMapping("update")
+public String onUpdate(@RequestParam int id, Model model) {
+	System.out.println("running the onUpdate" + id);
+	ZooDTO dto = this.service.findById(id);
+	model.addAttribute("visitor type", visitorType);
+	model.addAttribute("dto", dto);
+	return "UpdateZoo";
+}
+@PostMapping("update")
+public String onUpdate(ZooDTO dto, Model model) {
+	System.out.println("running the update" + dto);
+	Set<ConstraintViolation<ZooDTO>> constraintViolations = this.service.validateAndUpdate(dto);
+	if (constraintViolations.size() > 0) {
+		model.addAttribute("errors", constraintViolations);
+	} else {
+		System.out.println("update sucess");
+		model.addAttribute("message", " zoo update success....");
+	}
+	return "UpdateZoo";
+
+	
+}
+@GetMapping("delete")
+public String onDelete(@RequestParam int id,Model model) {
+	System.out.println("running delete in controller");
+	ZooDTO dto=this.service.deleteById(id);
+	if(dto==null) {
+		model.addAttribute("id", id);
+		model.addAttribute("message", "deleted sucessfully");
+	}
+	else
+		model.addAttribute("error", "data not found");
+	return "delete";
+}
+
 }

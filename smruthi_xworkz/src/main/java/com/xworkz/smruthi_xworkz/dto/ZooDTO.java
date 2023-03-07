@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class ZooDTO {
+	private int id;
 	private String name;
 	private String location;
 	private double entryFees;

@@ -1,6 +1,7 @@
 package com.xworkz.smruthi_xworkz.configaration;
 
 
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -29,5 +30,10 @@ System.out.println("created "+this.getClass().getSimpleName());
 		return new String[] {"/"};
 	}
 	
-
+	@Override
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) 
+	{
+		System.out.println("running the configureDefaultServletHandling");
+		configurer.enable();
+	}
 }
