@@ -29,7 +29,7 @@ public ZooContoller() {
 }
 @GetMapping("fun")
 public String onFun(Model model) {
-	System.out.println("Running onAir in controller");
+	System.out.println("Running onfun in controller");
 	model.addAttribute("visitorType",visitorType );
 	return "Registration";
 }
@@ -70,7 +70,7 @@ public String onSearch(@RequestParam int id,Model model) {
 }
 @GetMapping("searchByLocation")
 public String OnSearchByLocation(@RequestParam String location,Model model) {
-	System.out.println("running search by location in contolller");
+	System.out.println("running search by location in contolller"+location);
 	List<ZooDTO>list=this.service.findByLocation(location);
 	if(list !=null) {
 	model.addAttribute("list", list);}
@@ -101,7 +101,7 @@ public String onUpdate(ZooDTO dto, Model model) {
 
 	
 }
-@GetMapping("/delete")
+@GetMapping("delete")
 public String onDelete(@RequestParam int id , Model model) 
 {
 	System.out.println("delete the data :" +id);

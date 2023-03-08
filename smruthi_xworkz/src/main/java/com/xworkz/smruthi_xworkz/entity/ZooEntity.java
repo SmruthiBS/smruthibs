@@ -21,9 +21,9 @@ public class ZooEntity {
 	@Column(name = "location")
 	private String location;
 	@Column(name = "entry_Fees")
-	private double entry_Fees;
+	private double entryFees;
 	@Column(name = "area")
 	private double area;
 	@Column(name = "visitor_Type")
-	private String visitor_Type;
+	private String visitorType;
 }

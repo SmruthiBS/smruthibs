@@ -20,7 +20,7 @@ public class ZooRepositoryImpl implements ZooRepository {
 	private EntityManagerFactory entityManagerFactory;
 
 public ZooRepositoryImpl() {
-	System.out.println("created:" + getClass().getSimpleName());
+	System.out.println("created:" + this.getClass().getSimpleName());
 }
 	@Override
 	public boolean save(ZooEntity entity) {
@@ -37,7 +37,7 @@ public ZooRepositoryImpl() {
 	}
 	@Override
 	public ZooEntity findById(int id) {
-		System.out.println("Find by Id in repoImpli");
+		System.out.println("Find by Id in repoImpl");
 		EntityManager entityManager = this.entityManagerFactory.createEntityManager();
 		ZooEntity entity = entityManager.find(ZooEntity.class, id);
 		entityManager.close();
@@ -45,7 +45,7 @@ public ZooRepositoryImpl() {
 	}
 @Override
 public List<ZooEntity> findByLocation(String location) {
-	System.out.println("find by location in repoimpl");
+	System.out.println("find by location in repoimpl "+location);
 	EntityManager manager=this.entityManagerFactory.createEntityManager();
 	try {
 		Query query=manager.createNamedQuery("findByLocation");
@@ -60,7 +60,7 @@ public List<ZooEntity> findByLocation(String location) {
 }
 public boolean update(ZooEntity entity)
 {
-	System.out.println("running the update in entity");
+	System.out.println("running  update in entity");
 	EntityManager manager = this.entityManagerFactory.createEntityManager();
 	try
 	{
@@ -75,9 +75,10 @@ public boolean update(ZooEntity entity)
 		manager.close();
 	}
 }
+@Override
 public boolean delete(int id)
 {
-	System.out.println("Running the Delete");
+	System.out.println("Running  Delete");
 	EntityManager manager = this.entityManagerFactory.createEntityManager();
 	try
 	{

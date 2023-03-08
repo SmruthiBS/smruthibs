@@ -42,10 +42,11 @@ public class ZooServiceImpl implements ZooService {
 			ZooEntity entity = new ZooEntity();
 			entity.setArea(dto.getArea());
 			entity.setName(dto.getName());
-			entity.setEntry_Fees(dto.getEntryFees());
+			entity.setEntryFees(dto.getEntryFees());
 			entity.setLocation(dto.getLocation());
-			entity.setVisitor_Type(dto.getVisitorType());
+			entity.setVisitorType(dto.getVisitorType());
 			boolean saved = this.repo.save(entity);
+			System.out.println(saved);
 			return Collections.emptySet();
 		}
 
@@ -55,12 +56,12 @@ public class ZooServiceImpl implements ZooService {
 		if (id > 0) {
 			ZooEntity entity = this.repo.findById(id);
 			if (entity != null) {
-				System.out.println("entity is found in service for id");
+				System.out.println("entity is found in service for id" +id);
 				ZooDTO dto = new ZooDTO();
 				dto.setLocation(entity.getLocation());
 				dto.setName(entity.getName());
-				dto.setEntryFees(entity.getEntry_Fees());
-				dto.setVisitorType(entity.getVisitor_Type());
+				dto.setEntryFees(entity.getEntryFees());
+				dto.setVisitorType(entity.getVisitorType());
 				dto.setArea(entity.getArea());
 				return dto;
 			}
@@ -71,7 +72,7 @@ public class ZooServiceImpl implements ZooService {
 	@Override
 	public List<ZooDTO> findByLocation(String location) {
 	System.out.println("running findByLocation in service "+location); 
-	if(location!=null &&!location.isEmpty() ) {
+	if(location!=null && !location.isEmpty() ) {
 		System.out.println("location is valid..calling repo");
 		List<ZooEntity>entites=this.repo.findByLocation(location);
 		List<ZooDTO>listOfDTO=new ArrayList<ZooDTO>();
@@ -79,10 +80,10 @@ public class ZooServiceImpl implements ZooService {
 			ZooDTO dto=new ZooDTO();
 			dto.setId(entity.getId());
 			dto.setArea(entity.getArea());
-			dto.setEntryFees(entity.getEntry_Fees());
+			dto.setEntryFees(entity.getEntryFees());
 			dto.setLocation(entity.getLocation());
 			dto.setName(entity.getName());
-			dto.setVisitorType(entity.getVisitor_Type());
+			dto.setVisitorType(entity.getVisitorType());
 			listOfDTO.add(dto);
 			
 		}
@@ -115,9 +116,9 @@ public class ZooServiceImpl implements ZooService {
 			entity.setName(dto.getName());
 			entity.setLocation(dto.getLocation());
 			entity.setArea(dto.getArea());
-			entity.setEntry_Fees(dto.getEntryFees());
+			entity.setEntryFees(dto.getEntryFees());
 			entity.setId(dto.getId());
-			entity.setVisitor_Type(dto.getVisitorType());
+			entity.setVisitorType(dto.getVisitorType());
 			boolean saved = this.repo.update(entity);
 			System.out.println(saved);
 			return Collections.emptySet();

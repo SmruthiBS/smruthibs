@@ -22,7 +22,7 @@
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"
 				class="d-inline-block align-text-top"> <img
-				src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
+				src="https://media.istockphoto.com/id/1361301152/vector/zoo-entrance-gates-animals-park-fences-visitors-take-selfies-parents-and-children-excursion.jpg?s=612x612&w=0&k=20&c=OnFI3UhqC6E953dtrGwcgZt6Ej6HiJYdGclMPntR4T4=""
 				alt="" height="60" width="100">
 			</a>
 			<ul>
@@ -38,13 +38,13 @@
 	<c:forEach items="${errors}" var="e">
 		<br>
 	</c:forEach>
-	<span style="color: red" >${message}</span>
+	<span style="color: green" >${message}</span>
 
 	<form action="update" method="post">
 		<pre>
-		Id<input type="text" name="id" readonly value="${dto.id }"
+		Id<input type="text" name="id" readonly value="${dto.id}"
 				readonly="readonly" />
-		Name<input type="text" name="name" value="${dto.name }"
+		Name<input type="text" name="name" value="${dto.name}"
 				readonly="readonly" />
 		Location<input type="text" name="location" value="${dto.location}"
 				required="required" />
@@ -52,12 +52,13 @@
 				required="required" />
 		entry fees<input type="number" name="entryFees" value="${dto.entryFees}"
 				 required="required" />
-		visitor type<select name="visitorType" required="required" />
+		visitortype<select name="visitorType" required="required" />
 		<option value="${dto.visitorType }">${dto.visitorType}</option>
-		<c:forEach items="${noOfEmployees}" var="n">
+		<c:forEach items="${visitorType}" var="n">
 		<option value="${n}">${n}</option>
 		</c:forEach>
 		</select>
+			
 		<input type="submit" value="update" class="btn-btn-primary" />
 	</pre>
 	</form>
