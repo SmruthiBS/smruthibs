@@ -19,5 +19,14 @@ boolean update (ZooEntity entity);
 		return false;
 		
 	}
+	default  List<ZooEntity> findByName(String name){
+		return Collections.emptyList();
+	}
+	default  List<ZooEntity> findByNameAndLocation(String location,String name){
+		return Collections.emptyList();
+	}
+	default  List<ZooEntity> findAll(){
+		return Collections.emptyList();
+	}
 }
 

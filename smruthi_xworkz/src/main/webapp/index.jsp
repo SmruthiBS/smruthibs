@@ -24,7 +24,10 @@
 				<a href="fun">click here to register</a>
 				<a href="Search.jsp">search</a>
 				<a href="LocationSearch.jsp">location search</a>
-				
+				<a href="all">details</a>
+				<a href="NameSearch.jsp">name search</a>
+				<a href="NameAndLocationSearch.jsp"> name and location search</a>
+				<a href="ImageUpload.jsp">upload an image</a>
 			</div>
 			
 		</nav>

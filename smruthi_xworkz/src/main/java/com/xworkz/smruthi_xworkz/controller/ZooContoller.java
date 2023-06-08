@@ -18,46 +18,52 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.xworkz.smruthi_xworkz.dto.ZooDTO;
 import com.xworkz.smruthi_xworkz.service.ZooService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
 @RequestMapping("/")
+@Slf4j
 public class ZooContoller {
 	private List<String> visitorType = Arrays.asList("child", "adult", "senior citizen" );
 	@Autowired
 	private ZooService service;
 public ZooContoller() {
-	System.out.println("created "+this.getClass().getSimpleName());
+	log.info("created "+this.getClass().getSimpleName());
 }
 @GetMapping("fun")
 public String onFun(Model model) {
-	System.out.println("Running onfun in controller");
+	log.info("Running onfun in controller");
 	model.addAttribute("visitorType",visitorType );
+
 	return "Registration";
 }
 @PostMapping("fun")
 public String onFun(Model model, ZooDTO dto) {
-	System.out.println("Running onfun in post in controller");
+	log.info("Running onfun in post in controller");
 	Set<ConstraintViolation<ZooDTO>> violations = this.service.validateAndSave(dto);
 	if (violations.isEmpty()) {
-		System.out.println("no violations in controller,goto next page");
+		log.info("no violations in controller,goto next page");
+		model.addAttribute("message", "Zoo update Success");
 		
 		model.addAttribute("name", dto.getName());
 		model.addAttribute("location", dto.getLocation());
 		model.addAttribute("entryFee", dto.getEntryFees());
 		model.addAttribute("visitorType", dto.getVisitorType());
 		model.addAttribute("area", dto.getArea());
+		
 		return "Registration";
 
 	}
 	model.addAttribute("visitorType", visitorType);
 	
 	model.addAttribute("errors", violations);
-	System.err.println("violations in controller");
+	log.info("violations in controller");
 	return "Registration";
 
 }
 @GetMapping("find")
 public String onSearch(@RequestParam int id,Model model) {
-	System.out.println("Running on Search for id"+id);
+	log.info("Running on Search for id"+id);
 	ZooDTO dto=this.service.findById(id);
 	if(dto!=null) {
 		model.addAttribute("dto",dto);
@@ -68,9 +74,20 @@ public String onSearch(@RequestParam int id,Model model) {
 	return "Search";
 	
 }
+@GetMapping("searchByName")
+public String onSearchByName(@RequestParam String name, Model model) {
+	log.info("Running on search for name " + name);
+	List<ZooDTO> dto = this.service.findByName(name);
+	if (dto != null) {
+		model.addAttribute("dto", dto);
+	} else {
+		model.addAttribute("message1", "Data not found");
+	}
+	return "NameSearch";
+}
 @GetMapping("searchByLocation")
 public String OnSearchByLocation(@RequestParam String location,Model model) {
-	System.out.println("running search by location in contolller"+location);
+	log.info("running search by location in contolller"+location);
 	List<ZooDTO>list=this.service.findByLocation(location);
 	if(list !=null) {
 	model.addAttribute("list", list);}
@@ -79,37 +96,57 @@ public String OnSearchByLocation(@RequestParam String location,Model model) {
 	}
 	return "LocationSearch";
 }
+
+
+
 @GetMapping("update")
 public String onUpdate(@RequestParam int id, Model model) {
-	System.out.println("running the onUpdate" + id);
-	ZooDTO dto = this.service.findById(id);
-	model.addAttribute("visitor type", visitorType);
+	log.info("running onUpdate "+id);
+	ZooDTO dto=this.service.findById(id);
 	model.addAttribute("dto", dto);
+	model.addAttribute("visitorType", visitorType);
 	return "UpdateZoo";
 }
+
+
+	@GetMapping("searchByNameAndLocation")
+	public String onSearchByNameAndLocation(@RequestParam String name, String  location, Model model) {
+		log.info("Running on search for name and price " + name + location);
+		List<ZooDTO> dto = this.service. findByNameAndLocation(name,location);
+		
+		if (dto != null ) {
+			model.addAttribute("dto", dto);
+		} else {
+			model.addAttribute("message", "Data not found");
+		}
+		return "NameAndLocationSearch";
+	
+		
+}
+
 @PostMapping("update")
-public String onUpdate(ZooDTO dto, Model model) {
-	System.out.println("running the update" + dto);
-	Set<ConstraintViolation<ZooDTO>> constraintViolations = this.service.validateAndUpdate(dto);
-	if (constraintViolations.size() > 0) {
-		model.addAttribute("errors", constraintViolations);
-	} else {
-		System.out.println("update sucess");
-		model.addAttribute("message", " zoo update success....");
+public String onUpdate(Model model, ZooDTO dto) {
+	log.info("running onUpdate "+dto);
+	Set<ConstraintViolation<ZooDTO>> constraintviolations = this.service.validateAndUpdate(dto);
+	if(constraintviolations.size()>0) {
+		model.addAttribute("errors",constraintviolations);
+	}else {
+		model.addAttribute("message", "Zoo update Success");
 	}
 	return "UpdateZoo";
+}
 
 	
-}
+
 @GetMapping("delete")
 public String onDelete(@RequestParam int id , Model model) 
 {
-	System.out.println("delete the data :" +id);
+	log.info("delete the data :" +id);
 	boolean delete = this.service.validateAndDelete(id);
 	if(delete=true)
 	{
-		System.out.println("delete data of :" +id);
-		model.addAttribute("delete", "delete successfully....: ID :");
+		log.info("delete data of :" +id);
+		model.addAttribute("delete", "delete successfully.... ");
 		model.addAttribute("id",id);
 	}
 	else
@@ -117,5 +154,16 @@ public String onDelete(@RequestParam int id , Model model)
 		model.addAttribute("Not delete", "id is not found");
 	}
 	return "LocationSearch";
+}
+@GetMapping("/all")
+public String onSearchAll(Model model) {
+	log.info("Running on search for all ");
+	List<ZooDTO> dto = this.service.findAll();
+	if (dto != null) {
+		model.addAttribute("dto", dto);
+	} else {
+		model.addAttribute("message1", "Data not found");
+	}
+	return "findAll";
 }
 }

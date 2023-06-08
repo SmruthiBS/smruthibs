@@ -25,5 +25,16 @@ public interface ZooService {
 	{
 		return false;
 	}
+
+		List<ZooDTO> findByName(String name);
+
+		default List<ZooDTO> findByNameAndLocation(String name, String location){
+			return Collections.emptyList();
+		}
+		default  List<ZooDTO> findAll(){
+			return Collections.emptyList();
+		
+}
+		
 }
 

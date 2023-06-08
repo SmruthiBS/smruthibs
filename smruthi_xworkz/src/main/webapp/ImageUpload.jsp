@@ -15,7 +15,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" />
 </head>
 <body>
-	<h1>Welcome to search Page</h1>
+
 
 	<nav class="navbar navbar-dark bg-dark">
 		<!-- Navbar content -->
@@ -25,26 +25,19 @@
 				alt="" width="90" height="60" class="d-inline-block align-text-top">
 
 			<a href="index.jsp">home</a>
+
 		</div>
 
 	</nav>
-<h3>
-		<span style="color: green;">${message }</span>
-	</h3>
-	<h3>
-		<span style="color: red;">${error }</span>
-	</h3>
-	<form action="find" method="get">
-		SearchById<input type="text" name="id" /> <input type="submit"
-			value="search" required="required">
+
+	<h1>upload image test</h1>
+	
+
+	<form action="upload" method="post" enctype="multipart/form-data">
+	Upload : <input type="file"	name="chitra">
+		
+		<input type="submit" value="save"/>
+	
 	</form>
-	<div>
-		<h4>result</h4>
-		<h4>Name:${dto.name}</h4>
-		<h4>location:${dto.location}</h4>
-		<h4>entryFees:${dto.entryFees}</h4>
-		<h4>visitorType:${dto.visitorType}</h4>
-		<h4>Area:${dto.area}</h4>
-	</div>
 </body>
 </html>

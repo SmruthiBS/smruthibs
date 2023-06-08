@@ -7,11 +7,16 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 @Entity
 @Data
+@Slf4j
 @Table(name = "zoo_table")
 @NamedQuery(name = "findByLocation",query = "select ent from ZooEntity ent where ent.location=:loc")
+@NamedQuery(name = "findByName",query = "select ent from ZooEntity ent where ent.name=:nam")
+@NamedQuery(name = "findByNameAndLocation",query = "select ent from ZooEntity ent where ent.name=:nam and ent.location=:loca")
+@NamedQuery(name = "findAll",query = "select ent from ZooEntity ent ")
 public class ZooEntity {
 	@Id
 	@Column(name = "id")

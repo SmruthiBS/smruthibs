@@ -33,16 +33,16 @@
 	<h1>welcome to  registration</h1>
 	<pre>
 	<c:forEach items="${errors}" var="e">
-		<span style="color: red;">${e.message}</span>
+		<span style="color: green;">${e.message}</span>
 	</c:forEach>
 </pre>
 	<form action="fun" method="post">
 		<pre>
-		Name<input type="text" name="name" required="required"/>
-		Location<input type="text" name="location" required="required"/>
-		EntryFess<input type="number" name="entryFees" required="required"/>
-		Area<input type="text" name="area" required="required"/>
-		VisitorType<select name="visitorType" required="required">
+		Name<input type="text" name="name" required="required" value="${dto.name}"/>
+		Location<input type="text" name="location" required="required" value="${dto.location}" />
+		EntryFess<input type="number" name="entryFees" required="required" value="${dto.entryFees}"3x/>
+		Area<input type="text" name="area" required="required"  value="${dto.area}"  />
+		VisitorType<select name="visitorType" required="required" value="${dto.visitorType}"> >
 		<option value="">select</option>
 		<c:forEach items="${visitorType}" var="t">
 		<option value="${t}">${t}</option>

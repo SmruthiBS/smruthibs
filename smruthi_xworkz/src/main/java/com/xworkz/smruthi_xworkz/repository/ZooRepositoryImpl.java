@@ -9,23 +9,26 @@ import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 
 import com.xworkz.smruthi_xworkz.entity.ZooEntity;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Repository
+@Slf4j
 public class ZooRepositoryImpl implements ZooRepository {
 	@Autowired
 	private EntityManagerFactory entityManagerFactory;
 
 public ZooRepositoryImpl() {
-	System.out.println("created:" + this.getClass().getSimpleName());
+	log.info("created:" + this.getClass().getSimpleName());
 }
 	@Override
 	public boolean save(ZooEntity entity) {
 	
-		System.out.println("Running Save in zooRepoImpli" + entity);
+		log.info("Running Save in zooRepoImpli" + entity);
 		EntityManager manager = this.entityManagerFactory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
 		transaction.begin();
@@ -37,30 +40,79 @@ public ZooRepositoryImpl() {
 	}
 	@Override
 	public ZooEntity findById(int id) {
-		System.out.println("Find by Id in repoImpl");
+		log.info("Find by Id in repoImpl");
 		EntityManager entityManager = this.entityManagerFactory.createEntityManager();
 		ZooEntity entity = entityManager.find(ZooEntity.class, id);
 		entityManager.close();
 		return entity;
 	}
+	@Override
+	public List<ZooEntity> findByName(String name) {
+		log.info("Running findByName in repository " + name);
+		EntityManager manager = this.entityManagerFactory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findByName");
+			query.setParameter("nam", name);
+			log.info("query : " + query);
+			List<ZooEntity> list = query.getResultList();
+			log.info("Total list found in repo " + list.size());
+			return list;
+		} finally {
+			manager.close();
+			log.info("Released the connection");
+		}
+	}
 @Override
 public List<ZooEntity> findByLocation(String location) {
-	System.out.println("find by location in repoimpl "+location);
+	log.info("find by location in repoimpl "+location);
 	EntityManager manager=this.entityManagerFactory.createEntityManager();
 	try {
 		Query query=manager.createNamedQuery("findByLocation");
 		query.setParameter("loc", location);
 		List<ZooEntity>list=query.getResultList();
-		System.out.println("total list found in repo "+list.size());
+		log.info("total list found in repo "+list.size());
 		return list;
 	}
 	finally {
 		manager.close();
 	}
 }
+@Override
+public List<ZooEntity> findByNameAndLocation(String name, String location) {
+	log.info("Running findByNameAndLocation in repository " + name + location);
+	EntityManager manager = this.entityManagerFactory.createEntityManager();
+	try {
+		Query query = manager.createNamedQuery("findByNameAndLocation");
+		query.setParameter("nam", name);
+		query.setParameter("loca", location);
+		log.info("query : " + query);
+		List<ZooEntity> list = query.getResultList();
+		log.info("Total list found in repo " + list.size());
+		return list;
+	} finally {
+		manager.close();
+		System.out.println("Released the connection");
+	}
+}
+
+@Override
+public List<ZooEntity> findAll() {
+	log.info("Running findAll in repository ");
+	EntityManager manager = this.entityManagerFactory.createEntityManager();
+	try {
+		Query query = manager.createNamedQuery("findAll");
+		log.info("query : " + query);
+		List<ZooEntity> list = query.getResultList();
+		log.info("Total list found in repo " + list.size());
+		return list;
+	} finally {
+		manager.close();
+		log.info("Released the connection");
+	}
+}
 public boolean update(ZooEntity entity)
 {
-	System.out.println("running  update in entity");
+	log.info("running  update in entity");
 	EntityManager manager = this.entityManagerFactory.createEntityManager();
 	try
 	{
@@ -78,7 +130,7 @@ public boolean update(ZooEntity entity)
 @Override
 public boolean delete(int id)
 {
-	System.out.println("Running  Delete");
+	log.info("Running  Delete");
 	EntityManager manager = this.entityManagerFactory.createEntityManager();
 	try
 	{
